@@ -1,0 +1,37 @@
+.navigation-bar ul {
+  list-style: none;
+  background-color: black;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
+
+.navigation-bar li {
+  line-height: 40px;
+  height: 40px;
+  border-bottom: 1px solid #888;
+  display: inline-block;
+  margin-right: 2px;
+  transition: 0.3s background-color;
+}
+
+.navigation-bar i {
+  text-decoration: none;
+  color: #fff;
+  display: inline-block;
+}
+
+.navigation-bar li:hover {
+  background-color: #415050;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 600px) {
+  .navigation-bar li {
+    width: 120px;
+    border-bottom: none;
+    height: 50px;
+    line-height: 50px;
+    font-size: 1.4em;
+  }
+}
