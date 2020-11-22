@@ -1,0 +1,91 @@
+body {
+    padding: 0;
+    margin: 0;
+    background-color: black;
+}
+label {
+    font-weight: bold;
+    display: inline-block;
+    color: whitesmoke;
+}
+input[type='password'],
+input[type='email'] {
+    width: 100%;
+    padding: 12px 20px;
+    display: inline-block;
+    box-sizing: border-box;
+    background-color: rgb(21, 24, 28);
+    border-radius: 25px;
+    color: white;
+}
+
+input[type='submit'] {
+    background-color: rgb(242, 204, 35);
+    color: black;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 25px;
+}
+
+input[type='submit']:hover {
+    opacity: 0.8;
+}
+
+.error {
+    color: red;
+    display: block;
+}
+
+.title {
+    color: whitesmoke;
+    text-align: center;
+    display: block;
+    font-size: 50px;
+}
+
+.register-form {
+    margin: 0;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 500px;
+    max-width: 500px;
+    height: 500px;
+    max-height: 500px;
+}
+
+span {
+    float: right;
+    color: whitesmoke;
+}
+
+a:link {
+    color: rgb(242, 204, 35);
+    background-color: transparent;
+    text-decoration: none;
+}
+
+a:visited {
+    color: rgb(242, 204, 35);
+}
+
+img {
+    width: 40%;
+    border-radius: 50%;
+}
+
+.img-container {
+    text-align: center;
+}
+
+@media screen and (max-width: 300px) {
+    span {
+        display: block;
+        float: none;
+    }
+}
