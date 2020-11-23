@@ -1,22 +1,21 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import './style.css';
 import Logo from '../../assets/tiger.svg';
+import { createUser } from '../../api/user';
+import './style.css';
 
-//TODO: Add prevent transition feature.
+//TODO: Add pr
 
 type Inputs = {
+    name: string;
+    username: string;
     email: string;
     password: string;
-    username: string;
-    name: string;
 };
 
 export default function Register() {
     const { register, handleSubmit, errors } = useForm<Inputs>();
-    const onSubmit = function (data: any) {
-        console.log(data);
-    };
+    const onSubmit = (data: object) => createUser(data);
 
     return (
         <div className="register-form">
@@ -33,9 +32,9 @@ export default function Register() {
                     ref={register({ required: true })}
                 />
                 {errors.name && <p className="error">This field is required</p>}
-                <label htmlFor="username">Username</label>
+                <label htmlFor="userName">Username</label>
                 <input
-                    name="username"
+                    name="userName"
                     type="text"
                     placeholder="Enter you username."
                     ref={register({ required: true })}

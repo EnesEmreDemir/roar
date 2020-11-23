@@ -9,10 +9,8 @@ type Inputs = {
 };
 
 export default function Login() {
-    const { register, handleSubmit, watch, errors } = useForm<Inputs>();
+    const { register, handleSubmit, errors } = useForm<Inputs>();
     const onSubmit = (data: any) => console.log(data);
-
-    console.log(watch('name')); // watch input value by passing the name of it
 
     return (
         <div className="register-form">
