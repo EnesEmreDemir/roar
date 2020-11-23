@@ -10,4 +10,5 @@ The project is divided into two parts: Frontend and Backend.
 - React hook form for forms.
 - Axios as a HTTP client.
 ### For Backend:
-- Asp.NET Core 5 WEB API
+- Asp.NET Core 5 WEB API.
+- MongoDB for database.
