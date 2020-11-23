@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace Roar.UserAPI.Models
+﻿namespace Roar.UserAPI.Helpers
 {
     public class UserDatabaseSettings : IUserDatabaseSettings
     {

@@ -1,7 +1,7 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 
-namespace Roar.UserAPI.Models
+namespace Roar.UserAPI.Entities
 {
     public class User
     {
@@ -23,5 +23,7 @@ namespace Roar.UserAPI.Models
 
         [BsonElement("date")]
         public string Date { get; set; }
+        public byte[] PasswordHash { get; set; }
+        public byte[] PasswordSalt { get; set; }
     }
 }

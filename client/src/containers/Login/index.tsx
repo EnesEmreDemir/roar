@@ -1,5 +1,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { Link } from 'react-router-dom';
+import { userAPI } from '../../api/user';
 import './style.css';
 import Logo from '../../assets/tiger.svg';
 
@@ -10,7 +12,7 @@ type Inputs = {
 
 export default function Login() {
     const { register, handleSubmit, errors } = useForm<Inputs>();
-    const onSubmit = (data: any) => console.log(data);
+    const onSubmit = (data: any) => userAPI.login(data);
 
     return (
         <div className="register-form">
@@ -42,12 +44,12 @@ export default function Login() {
                 <label>Remember me</label>
                 <input type="checkbox"></input>
                 <span>
-                    <a href=".com">Forgot password?</a>
+                    <Link to=".com">Forgot password?</Link>
                 </span>
                 <input type="submit"></input>
             </form>
             <span>
-                <a href="register">Sign up</a>
+                <Link to="/register">Sign up</Link>
             </span>
         </div>
     );

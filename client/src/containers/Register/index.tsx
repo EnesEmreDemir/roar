@@ -1,7 +1,8 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import Logo from '../../assets/tiger.svg';
-import { createUser } from '../../api/user';
+import { Link } from 'react-router-dom';
+import { userAPI } from '../../api/user';
 import './style.css';
 
 //TODO: Add pr
@@ -15,7 +16,7 @@ type Inputs = {
 
 export default function Register() {
     const { register, handleSubmit, errors } = useForm<Inputs>();
-    const onSubmit = (data: object) => createUser(data);
+    const onSubmit = (data: object) => userAPI.register(data);
 
     return (
         <div className="register-form">
@@ -62,13 +63,10 @@ export default function Register() {
                 {errors.password && (
                     <p className="error">This field is required</p>
                 )}
-                <span>
-                    <a href=".com">Forgot password?</a>
-                </span>
                 <input type="submit"></input>
             </form>
             <span>
-                <a href="login">Already have an account?</a>
+                <Link to="/login">Already have an account?</Link>
             </span>
         </div>
     );
