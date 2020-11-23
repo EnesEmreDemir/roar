@@ -11,4 +11,4 @@ The project is divided into two parts: Frontend and Backend.
 - Axios as a HTTP client.
 ### For Backend:
 - Asp.NET Core 5 WEB API.
-- MongoDB for database.
+- MongoDB as a database.
