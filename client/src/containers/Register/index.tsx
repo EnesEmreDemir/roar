@@ -2,22 +2,25 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import Logo from '../../assets/tiger.svg';
 import { Link } from 'react-router-dom';
-import { userAPI } from '../../api/user';
+import { userActions } from '../../actions';
+import { IRegister } from '../../types/userInterfaces';
 import './style.css';
 
-//TODO: Add pr
+//TODO: Add prevent transition feature.
 
 type Inputs = {
     name: string;
-    username: string;
+    userName: string;
     email: string;
     password: string;
 };
 
 export default function Register() {
     const { register, handleSubmit, errors } = useForm<Inputs>();
-    const onSubmit = (data: object) => userAPI.register(data);
-
+    const onSubmit = function (data: IRegister) {
+        data.date = new Date().toISOString();
+        userActions.register(data);
+    };
     return (
         <div className="register-form">
             <div className="img-container">
@@ -40,7 +43,7 @@ export default function Register() {
                     placeholder="Enter you username."
                     ref={register({ required: true })}
                 />
-                {errors.username && (
+                {errors.userName && (
                     <p className="error">This field is required</p>
                 )}
                 <label htmlFor="email">E-mail</label>

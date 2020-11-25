@@ -1,5 +1,5 @@
 import Axios from 'axios';
-
+import { ILogin, IRegister } from '../types/userInterfaces';
 export const userAPI = {
     login,
     logout,
@@ -10,30 +10,28 @@ export const userAPI = {
 };
 
 // POST: localhost:44376/user/authenticate
-function login(data: any) {
-    Axios.post('https://localhost:44376/user/authenticate', data)
+function login(data: ILogin) {
+    return Axios.post('https://localhost:44376/user/authenticate', data)
         .then(function (response) {
-            console.log(data);
             console.log(response);
         })
         .then(user => {
-            localStorage.setItem('user', JSON.stringify(user));
+            localStorage.setItem('userCredentials', JSON.stringify(user));
             return user;
         })
         .catch(function (error) {
-            console.log(data);
             console.log(error.headers);
             console.log(error);
         });
 }
 
 function logout() {
-    localStorage.removeItem('user');
+    localStorage.removeItem('userCredentials');
 }
 
 // GET: localhost:44376/user
 function getAll() {
-    Axios.get('https://localhost:44376/user')
+    return Axios.get('https://localhost:44376/user')
         .then(function (response) {
             console.log(response);
         })
@@ -44,7 +42,7 @@ function getAll() {
 
 // GET: localhost:44376/user/${id}
 function getById(id: string) {
-    Axios.get(`https://localhost:44376/user/${id}`)
+    return Axios.get(`https://localhost:44376/user/${id}`)
         .then(function (response) {
             console.log(response);
         })
@@ -54,24 +52,21 @@ function getById(id: string) {
 }
 
 // POST: localhost:44376/user/register
-function register(data: any) {
-    let today = new Date().toISOString();
-    data['date'] = today;
+function register(data: IRegister) {
+    data.date = new Date().toISOString();
 
-    Axios.post('https://localhost:44376/user/register', data)
+    return Axios.post('https://localhost:44376/user/register', data)
         .then(function (response) {
-            console.log(data);
             console.log(response);
         })
         .catch(function (error) {
-            console.log(data);
             console.log(error);
         });
 }
 
 // DELETE: localhost:44376/user/${id}
 function remove(id: string) {
-    Axios.delete(`https://localhost:44376/user/${id}`)
+    return Axios.delete(`https://localhost:44376/user/${id}`)
         .then(function (response) {
             console.log(response);
         })

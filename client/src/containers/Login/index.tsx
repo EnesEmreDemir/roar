@@ -1,7 +1,8 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
-import { userAPI } from '../../api/user';
+import { userActions } from '../../actions';
+import { ILogin } from '../../types/userInterfaces';
 import './style.css';
 import Logo from '../../assets/tiger.svg';
 
@@ -12,7 +13,7 @@ type Inputs = {
 
 export default function Login() {
     const { register, handleSubmit, errors } = useForm<Inputs>();
-    const onSubmit = (data: any) => userAPI.login(data);
+    const onSubmit = (data: ILogin) => userActions.login(data);
 
     return (
         <div className="register-form">

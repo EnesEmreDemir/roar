@@ -15,5 +15,7 @@ namespace Roar.UserAPI.Models
 
         [Required]
         public string Password { get; set; }
+
+        public string Date { get; set; }
     }
 }
