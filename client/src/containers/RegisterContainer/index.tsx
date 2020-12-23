@@ -15,12 +15,13 @@ type Inputs = {
     password: string;
 };
 
-export default function Register() {
+export default function RegisterContainer() {
     const { register, handleSubmit, errors } = useForm<Inputs>();
     const onSubmit = function (data: IRegister) {
         data.date = new Date().toISOString();
         userActions.register(data);
     };
+    document.body.style.backgroundColor = 'black';
     return (
         <div className="register-form">
             <div className="img-container">

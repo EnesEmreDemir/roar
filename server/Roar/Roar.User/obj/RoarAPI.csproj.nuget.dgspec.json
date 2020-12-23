@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Desktop\\roar\\server\\Roar\\Roar.User\\Roar.UserAPI.csproj": {}
+    "D:\\Desktop\\roar\\server\\Roar\\Roar.User\\RoarAPI.csproj": {}
   },
   "projects": {
-    "D:\\Desktop\\roar\\server\\Roar\\Roar.User\\Roar.UserAPI.csproj": {
+    "D:\\Desktop\\roar\\server\\Roar\\Roar.User\\RoarAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Desktop\\roar\\server\\Roar\\Roar.User\\Roar.UserAPI.csproj",
-        "projectName": "Roar.UserAPI",
-        "projectPath": "D:\\Desktop\\roar\\server\\Roar\\Roar.User\\Roar.UserAPI.csproj",
+        "projectUniqueName": "D:\\Desktop\\roar\\server\\Roar\\Roar.User\\RoarAPI.csproj",
+        "projectName": "RoarAPI",
+        "projectPath": "D:\\Desktop\\roar\\server\\Roar\\Roar.User\\RoarAPI.csproj",
         "packagesPath": "C:\\Users\\Enes\\.nuget\\packages\\",
         "outputPath": "D:\\Desktop\\roar\\server\\Roar\\Roar.User\\obj\\",
         "projectStyle": "PackageReference",

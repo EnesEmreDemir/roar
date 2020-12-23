@@ -3,7 +3,7 @@ import { userConstants } from '../constants';
 let user = JSON.parse(localStorage.getItem('userCredentials') || '{}');
 const initialState = user ? { loggedIn: true, user } : {};
 
-export function authentication(state = initialState, action: any) {
+export function authenticationReducer(state = initialState, action: any) {
     switch (action.type) {
         case userConstants.LOGIN_REQUEST:
             return {

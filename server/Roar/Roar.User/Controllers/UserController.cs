@@ -37,7 +37,7 @@ namespace Roar.UserAPI.Controllers
             var user = _userService.Authenticate(model.Email, model.Password);
 
             if (user == null)
-                return BadRequest(new { message = "Email or password is incorrect" });
+                return Unauthorized(new { message = "Email or password is incorrect" });
 
             var tokenHandler = new JwtSecurityTokenHandler();
             var key = Encoding.ASCII.GetBytes(_appSettings.Secret);
@@ -89,7 +89,7 @@ namespace Roar.UserAPI.Controllers
             try
             {
                 _userService.Create(user, model.Password);
-                return Ok();
+                return Ok( new {message ="Registration successful"});
             }
             catch (CustomException ex)
             {

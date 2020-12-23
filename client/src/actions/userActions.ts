@@ -1,30 +1,32 @@
+import { userAPI } from '../services/user';
 import { userConstants } from '../constants';
-import { userAPI } from '../api/user';
-import { alertActions } from './alertActions';
+import { ILogin, IRegister } from '../types/userInterfaces';
+import { history } from '../utils';
+import { alertActions } from '../actions';
 
 export const userActions = {
     login,
     logout,
     register,
     getAll,
-    remove,
 };
 
-//FIXME: REMOVE "ANY" TYPES.
-
-function login(data: any) {
+function login(data: ILogin) {
     return (dispatch: any) => {
-        dispatch(request({ data }));
-
-        userAPI.login(data).then(
-            user => {
-                dispatch(success(user));
-            },
-            error => {
-                dispatch(failure(error.toString()));
-                dispatch(alertActions.error(error.toString()));
-            }
-        );
+        dispatch(request(data));
+        userAPI
+            .login(data)
+            .then(
+                (response: any) => {
+                    dispatch(success(response));
+                    history.push('/home');
+                },
+                (error: any) => {
+                    dispatch(failure(error));
+                    dispatch(alertActions.error(error.message));
+                }
+            )
+            .catch();
     };
 
     function request(user: any) {
@@ -43,13 +45,14 @@ function logout() {
     return { type: userConstants.LOGOUT };
 }
 
-function register(data: any) {
+function register(data: IRegister) {
     return (dispatch: any) => {
         dispatch(request(data));
 
         userAPI.register(data).then(
             data => {
                 dispatch(success(data));
+                history.push('/login');
                 dispatch(alertActions.success('Registration successful'));
             },
             error => {
@@ -91,23 +94,23 @@ function getAll() {
     }
 }
 
-function remove(id: any) {
-    return (dispatch: any) => {
-        dispatch(request(id));
-
-        userAPI.remove(id).then(
-            user => dispatch(success(id)),
-            error => dispatch(failure(id, error.toString()))
-        );
-    };
-
-    function request(id: any) {
-        return { type: userConstants.DELETE_REQUEST, id };
-    }
-    function success(id: any) {
-        return { type: userConstants.DELETE_SUCCESS, id };
-    }
-    function failure(id: any, error: any) {
-        return { type: userConstants.DELETE_FAILURE, id, error };
-    }
-}
+//function remove(id) {
+//    return (dispatch: any) => {
+//        dispatch(request(id));
+//
+//        userAPI.delete(id).then(
+//            user => dispatch(success(id)),
+//            error => dispatch(failure(id, error.toString()))
+//        );
+//    };
+//
+//    function request(id) {
+//        return { type: userConstants.DELETE_REQUEST, id };
+//    }
+//    function success(id) {
+//        return { type: userConstants.DELETE_SUCCESS, id };
+//    }
+//    function failure(id, error) {
+//        return { type: userConstants.DELETE_FAILURE, id, error };
+//    }
+//}

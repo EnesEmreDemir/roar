@@ -1,43 +1,38 @@
 import React from 'react';
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    //Redirect,
-} from 'react-router-dom';
-import Home from './containers/Home/index';
-import Login from './containers/Login/index';
-import Register from './containers/Register/index';
+import { Router, Switch, Route, Redirect } from 'react-router-dom';
+import Home from './containers/HomeContainer/index';
+import Login from './containers/LoginContainer/index';
+import Register from './containers/RegisterContainer/index';
+import { history } from './utils';
 
 export default function Routing() {
     return (
-        <Router>
+        <Router history={history}>
             <Switch>
-                <Route path={['/home', '/ ', '/', '*']}>
-                    <Home />
-                </Route>
-                <Route path="/login">
-                    <Login />
-                </Route>
-                <Route path="/register">
-                    <Register />
-                </Route>
+                <Route path="/register" component={Register} exact />
+                <Route path="/login" component={Login} exact />
+                <PrivateRoute path="/home" component={Home} exact />
+                <Redirect from="/" to="/home" exact />
+                <Redirect from="*" to="/home" exact />
             </Switch>
         </Router>
     );
 }
 
-//const PrivateRoute = ({ component: Component, ...rest }: any) => (
-//    <Route
-//        {...rest}
-//        render={props =>
-//            localStorage.getItem('userCredentials') ? (
-//                <Component {...props} />
-//            ) : (
-//                <Redirect
-//                    to={{ pathname: '/login', state: { from: props.location } }}
-//                />
-//            )
-//        }
-//    />
-//);
+const PrivateRoute: React.FC<{
+    component: React.FC;
+    path: string;
+    exact: boolean;
+}> = props => {
+    const condition = localStorage.getItem('userCredentials');
+
+    return condition ? (
+        <Route
+            path={props.path}
+            exact={props.exact}
+            component={props.component}
+        />
+    ) : (
+        <Redirect to="/login" />
+    );
+};

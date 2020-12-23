@@ -1,8 +1,3 @@
-body {
-    padding: 0;
-    margin: 0;
-    background-color: black;
-}
 label {
     font-weight: bold;
     display: inline-block;
@@ -45,8 +40,10 @@ input[type='submit']:hover {
     display: block;
     font-size: 50px;
 }
-
-.register-form {
+.alert {
+    color: aqua;
+}
+.login-form {
     margin: 0;
     position: absolute;
     top: 30%;
