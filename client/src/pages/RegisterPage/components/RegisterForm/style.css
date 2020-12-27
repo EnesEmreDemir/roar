@@ -35,6 +35,10 @@ input[type='submit']:hover {
     display: block;
 }
 
+.alert {
+    color: red;
+}
+
 .title {
     color: whitesmoke;
     text-align: center;

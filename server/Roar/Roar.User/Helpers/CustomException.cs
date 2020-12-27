@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Globalization;
 
-namespace Roar.UserAPI.Helpers
+namespace Roar.Helpers
 {
     public class CustomException : Exception
     {

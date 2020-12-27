@@ -18,7 +18,7 @@ input[type='submit'] {
     background-color: rgb(242, 204, 35);
     color: black;
     padding: 14px 20px;
-    margin: 8px 0;
+    margin-top: 8px;
     border: none;
     cursor: pointer;
     width: 100%;
@@ -41,7 +41,8 @@ input[type='submit']:hover {
     font-size: 50px;
 }
 .alert {
-    color: aqua;
+    color: red;
+    font-weight: bold;
 }
 .login-form {
     margin: 0;

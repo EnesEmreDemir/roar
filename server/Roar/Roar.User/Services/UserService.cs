@@ -1,11 +1,11 @@
 ﻿using MongoDB.Driver;
-using Roar.UserAPI.Entities;
-using Roar.UserAPI.Helpers;
+using Roar.Entities;
+using Roar.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Roar.UserAPI.Services
+namespace Roar.Services
 {
     public class UserService
     {

@@ -7,13 +7,13 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
-using Roar.UserAPI.Helpers;
-using Roar.UserAPI.Services;
+using Roar.Helpers;
+using Roar.Services;
 using System;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Roar.UserAPI
+namespace Roar
 {
     public class Startup
     {

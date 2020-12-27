@@ -1,0 +1,10 @@
+.FeedContainer {
+    border-left: 2px solid #2f3336;
+    border-right: 2px solid #2f3336;
+    left: 50%;
+    top: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    width: 40%;
+    height: 100%;
+}

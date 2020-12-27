@@ -1,4 +1,4 @@
-﻿namespace Roar.UserAPI.Helpers
+﻿namespace Roar.Helpers
 {
     public class AppSettings
     {

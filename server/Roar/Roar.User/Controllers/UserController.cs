@@ -3,16 +3,17 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
-using Roar.UserAPI.Entities;
-using Roar.UserAPI.Helpers;
-using Roar.UserAPI.Models;
-using Roar.UserAPI.Services;
+using Roar.Entities;
+using Roar.Helpers;
+using Roar.Models;
+using Roar.Services;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-namespace Roar.UserAPI.Controllers
+
+namespace Roar.Controllers
 {
     [Authorize]
     [Route("[controller]")]
@@ -86,10 +87,22 @@ namespace Roar.UserAPI.Controllers
         {
             var user = _mapper.Map<User>(model);
 
+            foreach(var _user in _userService.Get())
+            {
+                if (_user.Email == user.Email)
+                {
+                    return BadRequest(new { message = "Email is already registered. Try logging in." });
+                }
+
+                if (_user.UserName == user.UserName)
+                {
+                    return BadRequest(new { message = "Username is already taken." });
+                }
+            }
             try
             {
                 _userService.Create(user, model.Password);
-                return Ok( new {message ="Registration successful"});
+                return Ok(new { message = "Registration successful" });
             }
             catch (CustomException ex)
             {

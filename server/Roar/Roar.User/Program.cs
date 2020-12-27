@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 
-namespace Roar.UserAPI
+namespace Roar
 {
     public static class Program
     {

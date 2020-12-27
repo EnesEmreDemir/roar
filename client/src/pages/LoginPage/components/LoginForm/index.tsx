@@ -1,10 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
-import { userActions, alertActions } from '../../actions';
-import { history } from '../../utils';
-import { ILogin } from '../../types/userInterfaces';
-import Logo from '../../assets/tiger.svg';
+import { userActions } from '../../../../actions';
+import { ILogin } from '../../../../types/userInterfaces';
+import Logo from '../../../../assets/tiger.svg';
 import { useSelector, useDispatch } from 'react-redux';
 import './style.css';
 
@@ -13,27 +12,20 @@ type Inputs = {
     password: string;
 };
 
-export default function LoginContainer() {
+export function LoginForm() {
     const dispatch = useDispatch();
     const alert = useSelector((state: any) => state.alertReducer);
     const { register, handleSubmit, errors } = useForm<Inputs>();
 
-    // clear alert on location change
-    useEffect(() => {
-        history.listen((location, action) => {
-            dispatch(alertActions.clear());
-        });
-    }, []);
-    //
-    // reset login status
-    //useEffect(() => {
-    //    dispatch(userActions.logout());
-    //}, []);
+    //For password visiblity.
+    const [passwordShown, setPasswordShown] = useState(false);
+    const togglePasswordVisiblity = () => {
+        setPasswordShown(passwordShown ? false : true);
+    };
 
     const onSubmit = (data: ILogin) => {
         dispatch(userActions.login(data));
     };
-    document.body.style.backgroundColor = 'black';
 
     return (
         <div className="login-form">
@@ -55,8 +47,9 @@ export default function LoginContainer() {
                 )}
                 <label htmlFor="password">Password</label>
                 <input
+                    className="password"
                     name="password"
-                    type="password"
+                    type={passwordShown ? 'text' : 'password'}
                     placeholder="Enter your password."
                     ref={register({ required: true })}
                 />
@@ -69,7 +62,9 @@ export default function LoginContainer() {
                     <Link to=".com">Forgot password?</Link>
                 </span>
                 <input type="submit"></input>
+                <input type="checkbox" onClick={togglePasswordVisiblity} />
             </form>
+            <label>Show Password</label>
             <span>
                 <Link to="/register">Sign up</Link>
             </span>

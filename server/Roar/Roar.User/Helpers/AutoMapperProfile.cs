@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
-using Roar.UserAPI.Entities;
-using Roar.UserAPI.Models;
+using Roar.Entities;
+using Roar.Models;
 
-namespace Roar.UserAPI.Helpers
+namespace Roar.Helpers
 {
     public class AutoMapperProfile : Profile
     {

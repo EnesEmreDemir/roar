@@ -1,4 +1,4 @@
-﻿namespace Roar.UserAPI.Models
+﻿namespace Roar.Models
 {
     public class UpdateModel
     {

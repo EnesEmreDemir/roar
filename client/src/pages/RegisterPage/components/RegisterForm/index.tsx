@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import Logo from '../../assets/tiger.svg';
+import Logo from '../../../../assets/tiger.svg';
 import { Link } from 'react-router-dom';
-import { userActions } from '../../actions';
-import { IRegister } from '../../types/userInterfaces';
+import { userActions } from '../../../../actions';
+import { IRegister } from '../../../../types/userInterfaces';
+import { useSelector, useDispatch } from 'react-redux';
 import './style.css';
 
 //TODO: Add prevent transition feature.
@@ -15,19 +16,28 @@ type Inputs = {
     password: string;
 };
 
-export default function RegisterContainer() {
+export function RegisterForm() {
+    const dispatch = useDispatch();
+    const alert = useSelector((state: any) => state.alertReducer);
     const { register, handleSubmit, errors } = useForm<Inputs>();
+
+    //For password visiblity.
+    const [passwordShown, setPasswordShown] = useState(false);
+    const togglePasswordVisiblity = () => {
+        setPasswordShown(passwordShown ? false : true);
+    };
     const onSubmit = function (data: IRegister) {
         data.date = new Date().toISOString();
-        userActions.register(data);
+        dispatch(userActions.register(data));
     };
-    document.body.style.backgroundColor = 'black';
+
     return (
         <div className="register-form">
             <div className="img-container">
                 <img src={Logo} alt="Logo" />
             </div>
             <p className="title">Register to Roar</p>
+            <p className="alert">{alert.message}</p>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <label htmlFor="name">Name</label>
                 <input
@@ -60,7 +70,7 @@ export default function RegisterContainer() {
                 <label htmlFor="password">Password</label>
                 <input
                     name="password"
-                    type="password"
+                    type={passwordShown ? 'text' : 'password'}
                     placeholder="Enter your password."
                     ref={register({ required: true })}
                 />
@@ -68,6 +78,8 @@ export default function RegisterContainer() {
                     <p className="error">This field is required</p>
                 )}
                 <input type="submit"></input>
+                <input type="checkbox" onClick={togglePasswordVisiblity} />
+                <label>Show Password</label>
             </form>
             <span>
                 <Link to="/login">Already have an account?</Link>

@@ -1,4 +1,4 @@
-import { userAPI } from '../services/user';
+import { userAPI } from '../api/user';
 import { userConstants } from '../constants';
 import { ILogin, IRegister } from '../types/userInterfaces';
 import { history } from '../utils';
@@ -50,14 +50,14 @@ function register(data: IRegister) {
         dispatch(request(data));
 
         userAPI.register(data).then(
-            data => {
-                dispatch(success(data));
+            (response: any) => {
+                dispatch(success(response));
                 history.push('/login');
                 dispatch(alertActions.success('Registration successful'));
             },
-            error => {
-                dispatch(failure(error.toString()));
-                dispatch(alertActions.error(error.toString()));
+            (error: any) => {
+                dispatch(failure(error));
+                dispatch(alertActions.error(error.message));
             }
         );
     };
@@ -93,24 +93,3 @@ function getAll() {
         return { type: userConstants.GETALL_FAILURE, error };
     }
 }
-
-//function remove(id) {
-//    return (dispatch: any) => {
-//        dispatch(request(id));
-//
-//        userAPI.delete(id).then(
-//            user => dispatch(success(id)),
-//            error => dispatch(failure(id, error.toString()))
-//        );
-//    };
-//
-//    function request(id) {
-//        return { type: userConstants.DELETE_REQUEST, id };
-//    }
-//    function success(id) {
-//        return { type: userConstants.DELETE_SUCCESS, id };
-//    }
-//    function failure(id, error) {
-//        return { type: userConstants.DELETE_FAILURE, id, error };
-//    }
-//}

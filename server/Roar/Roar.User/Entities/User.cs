@@ -1,7 +1,7 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 
-namespace Roar.UserAPI.Entities
+namespace Roar.Entities
 {
     public class User
     {

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Roar.UserAPI.Models
+namespace Roar.Models
 {
     public class AuthenticateModel
     {
