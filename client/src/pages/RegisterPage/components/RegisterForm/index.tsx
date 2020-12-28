@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { userActions } from '../../../../actions';
 import { IRegister } from '../../../../types/userInterfaces';
 import { useSelector, useDispatch } from 'react-redux';
-import './style.css';
+import styles from './style.module.css';
 
 //TODO: Add prevent transition feature.
 
@@ -32,7 +32,7 @@ export function RegisterForm() {
     };
 
     return (
-        <div className="register-form">
+        <div className={styles.RegisterForm}>
             <div className="img-container">
                 <img src={Logo} alt="Logo" />
             </div>

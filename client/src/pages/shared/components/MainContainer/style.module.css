@@ -1,0 +1,23 @@
+.maincontainer {
+    border-left: 2px solid #2f3336;
+    border-right: 2px solid #2f3336;
+    left: 50%;
+    top: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    width: 40%;
+    height: 100%;
+    overflow: auto;
+}
+.headercontainer {
+    border-bottom: 2px solid #2f3336;
+}
+.headercontainer p {
+    color: white;
+    font-weight: bolder;
+    text-align: center;
+}
+.roarcontainer {
+    border-bottom: 2px solid #2f3336;
+    padding: 10px;
+}

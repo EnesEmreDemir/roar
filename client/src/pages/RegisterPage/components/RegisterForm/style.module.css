@@ -1,11 +1,11 @@
-label {
+.registerForm label {
     font-weight: bold;
     display: inline-block;
     color: whitesmoke;
 }
-input[type='text'],
-input[type='password'],
-input[type='email'] {
+.registerForm input[type='text'],
+.registerForm input[type='password'],
+.registerForm input[type='email'] {
     width: 100%;
     padding: 12px 20px;
     display: inline-block;
@@ -15,7 +15,7 @@ input[type='email'] {
     color: white;
 }
 
-input[type='submit'] {
+.registerForm input[type='submit'] {
     background-color: rgb(242, 204, 35);
     color: black;
     padding: 14px 20px;
@@ -26,27 +26,27 @@ input[type='submit'] {
     border-radius: 25px;
 }
 
-input[type='submit']:hover {
+.registerForm input[type='submit']:hover {
     opacity: 0.8;
 }
 
-.error {
+.registerForm .error {
     color: red;
     display: block;
 }
 
-.alert {
+.registerForm .alert {
     color: red;
 }
 
-.title {
+.registerForm .title {
     color: whitesmoke;
     text-align: center;
     display: block;
     font-size: 50px;
 }
 
-.register-form {
+.registerForm {
     margin: 0;
     position: absolute;
     top: 30%;
@@ -59,27 +59,27 @@ input[type='submit']:hover {
     max-height: 500px;
 }
 
-span {
+.registerForm span {
     float: right;
     color: whitesmoke;
 }
 
-a:link {
+.registerForm a:link {
     color: rgb(242, 204, 35);
     background-color: transparent;
     text-decoration: none;
 }
 
-a:visited {
+.registerForm a:visited {
     color: rgb(242, 204, 35);
 }
 
-img {
+.registerForm img {
     width: 40%;
     border-radius: 50%;
 }
 
-.img-container {
+.registerForm .img-container {
     text-align: center;
 }
 

@@ -5244,11 +5244,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Desktop\\roar\\server\\Roar\\Roar.User\\RoarAPI.csproj",
+      "projectUniqueName": "D:\\Desktop\\roar\\server\\Roar\\RoarAPI\\RoarAPI.csproj",
       "projectName": "RoarAPI",
-      "projectPath": "D:\\Desktop\\roar\\server\\Roar\\Roar.User\\RoarAPI.csproj",
+      "projectPath": "D:\\Desktop\\roar\\server\\Roar\\RoarAPI\\RoarAPI.csproj",
       "packagesPath": "C:\\Users\\Enes\\.nuget\\packages\\",
-      "outputPath": "D:\\Desktop\\roar\\server\\Roar\\Roar.User\\obj\\",
+      "outputPath": "D:\\Desktop\\roar\\server\\Roar\\RoarAPI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Enes\\AppData\\Roaming\\NuGet\\NuGet.Config",

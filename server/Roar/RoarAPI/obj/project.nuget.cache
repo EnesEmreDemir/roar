@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "7jdY99eEBt85lbrjtWxSvxkrokblGzXOsa3fmUeM//21zXIutM82G0BG07J+/qENepx1Lid43scWYqkPhgNcUA==",
+  "dgSpecHash": "NfwIZSXJFaFK9VhjNWTAteKe9HZ7POB2kkUtRmdTCRcor1aLgTR30Z/dGjqCSUS8d5n1JxC1Oz3WDO9gwiqPVA==",
   "success": true,
-  "projectFilePath": "D:\\Desktop\\roar\\server\\Roar\\Roar.User\\RoarAPI.csproj",
+  "projectFilePath": "D:\\Desktop\\roar\\server\\Roar\\RoarAPI\\RoarAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Enes\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\Enes\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.1.0\\automapper.extensions.microsoft.dependencyinjection.8.1.0.nupkg.sha512",
