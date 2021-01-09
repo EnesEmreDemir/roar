@@ -12,4 +12,5 @@ The project is divided into two parts: Frontend and Backend.
 ### For Backend:
 - Asp.NET Core 5 WEB API.
 - Serilog for logging.
+- Scrutor for configuring DI.
 - MongoDB as a database.
